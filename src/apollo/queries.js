@@ -3,7 +3,7 @@ import { FACTORY_ADDRESS, BUNDLE_ID } from '../constants'
 
 export const SUBGRAPH_HEALTH = gql`
   query health {
-    indexingStatusForCurrentVersion(subgraphName: "dasconnor/pangolin-dex") {
+    indexingStatusForCurrentVersion(subgraphName: "josema03/partyswap-dex") {
       synced
       health
       chains {
@@ -455,8 +455,8 @@ export const PAIR_DAY_DATA_BULK = (pairs, startTimestamp) => {
 }
 
 export const GLOBAL_CHART = gql`
-  query pangolinDayDatas($pointer: Int!) {
-    pangolinDayDatas(first: 1000, where: { date_gt: $pointer }, orderBy: date, orderDirection: asc) {
+  query partyswapDayDatas($pointer: Int!) {
+    partyswapDayDatas(first: 1000, where: { date_gt: $pointer }, orderBy: date, orderDirection: asc) {
       id
       date
       totalVolumeUSD
@@ -469,8 +469,8 @@ export const GLOBAL_CHART = gql`
 `
 
 export const GLOBAL_DATA = (block) => {
-  const queryString = ` query pangolinFactories {
-      pangolinFactories(
+  const queryString = ` query partyswapFactories {
+      partyswapFactories(
        ${block ? `block: { number: ${block}}` : ``} 
        where: { id: "${FACTORY_ADDRESS}" }) {
         id
