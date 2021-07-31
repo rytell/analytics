@@ -28,7 +28,7 @@ export const stakingClient = new ApolloClient({
 
 export const blockClient = new ApolloClient({
   link: new HttpLink({
-    uri: 'https://api.thegraph.com/subgraphs/name/dasconnor/avalanche-blocks',
+    uri: 'https://api.thegraph.com/subgraphs/name/klemah/fuji-blocks',
   }),
   cache: new InMemoryCache(),
 })
