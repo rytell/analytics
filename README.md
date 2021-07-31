@@ -1,12 +1,12 @@
-# Pangolin Analytics
+# Partyswap Analytics
 
-An open source analytics platform for Pangolin -- a community-driven decentralized exchange for Avalanche and Ethereum assets with fast settlement, low transaction fees, and a democratic distribution -- powered by Avalanche.
+An analytics platform for Partyswap -- a Decentralized Exchange (DEX) launched in Avalanche where you can do permissionless swaps between currencies, earn interests in farms and liquidity pools in one interoperable, highly scalable ecosystem.
 
-- Website: [pangolin.exchange](https://pangolin.exchange/)
-- Interface: [app.pangolin.exchange](https://app.pangolin.exchange)
-- Telegram: [Pangolin](https://t.me/pangolindex)
-- Discord: [Pangolin](https://discord.com/invite/PARrDYYbfw)
-- Twitter: [@pangolindex](https://twitter.com/pangolindex)
+- Website: [partyswap.io](https://partyswap.io/)
+- Interface: [app.partyswap.io](https://app.partyswap.io)
+- Telegram: [Partyswap](https://t.me/partyswap)
+- Discord: [Partyswap](https://discord.gg/r9fTvqCfBw)
+- Twitter: [@partyswapdex](https://twitter.com/partyswapdex)
 
 ### To Start Development
 
@@ -21,4 +21,4 @@ yarn start
 ```
 
 ## Attribution
-This code was adapted from this Uniswap repo: [uniswap-info](https://github.com/Uniswap/uniswap-info).
+This code was adapted from this Pangolin repo: [analytics](https://github.com/pangolindex/analytics).

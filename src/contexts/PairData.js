@@ -498,10 +498,10 @@ export function useHourlyRateData(pairAddress, timeWindow) {
     const currentTime = dayjs.utc()
     const windowSize = timeWindow === timeframeOptions.MONTH ? 'month' : 'week'
 
-    // February 8th 2021 - Pangolin Factory is created
+    // July 27th 2021 - Partyswap Factory is created
     const startTime =
       timeWindow === timeframeOptions.ALL_TIME
-        ? dayjs('2021-02-08').startOf('day').unix()
+        ? dayjs('2021-07-26').startOf('day').unix()
         : currentTime.subtract(1, windowSize).startOf('hour').unix()
 
     async function fetch() {

@@ -70,7 +70,7 @@ export default function TokenLogo({ address, header = false, size = '24px', ...r
     )
   }
 
-  const path = `https://raw.githubusercontent.com/pangolindex/tokens/main/assets/${isAddress(
+  const path = `https://raw.githubusercontent.com/PartySwapDEX/token-assets/main/assets/${isAddress(
     address
   )}/logo.png`
 

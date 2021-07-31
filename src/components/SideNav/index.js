@@ -164,8 +164,8 @@ function SideNav({ history }) {
           </AutoColumn>
           <AutoColumn gap="0.5rem" style={{ marginLeft: '.75rem', marginBottom: '4rem' }}>
             <HeaderText>
-              <Link href="https://app.pangolin.exchange" target="_blank">
-                Pangolin
+              <Link href="https://app.partyswap.io" target="_blank">
+                Partyswap
               </Link>
             </HeaderText>
             <HeaderText>
@@ -176,11 +176,6 @@ function SideNav({ history }) {
             <HeaderText>
               <Link href="https://twitter.com/avalancheavax" target="_blank">
                 Twitter
-              </Link>
-            </HeaderText>
-            <HeaderText>
-              <Link href="https://markr.io/#/applications/Pangolin" target="_blank">
-                Markr.io
               </Link>
             </HeaderText>
             <Toggle isActive={isDark} toggle={toggleDarkMode} />

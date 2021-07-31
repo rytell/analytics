@@ -6,7 +6,7 @@ import { Flex } from 'rebass'
 import Link from '../Link'
 import { RowFixed } from '../Row'
 import Logo from '../../assets/logo.svg'
-import Wordmark from '../../assets/wordmark.png'
+import Wordmark from '../../assets/wordmark.svg'
 
 const TitleWrapper = styled.div`
   text-decoration: none;
@@ -35,7 +35,7 @@ export default function Title() {
           <UniIcon id="link" onClick={() => history.push('/')}>
             <img width={'24px'} src={Logo} alt="logo" />
           </UniIcon>
-          <img width={'84px'} style={{ marginLeft: '8px', marginTop: '0px' }} src={Wordmark} alt="logo" />
+          <img width={'150px'} style={{ marginLeft: '8px', marginTop: '0px' }} src={Wordmark} alt="wordmark" />
         </RowFixed>
       </Flex>
     </TitleWrapper>
