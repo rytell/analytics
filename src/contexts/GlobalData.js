@@ -70,6 +70,7 @@ function reducer(state, { type, payload }) {
     case UPDATE_ETH_PRICE: {
       const { ethPrice, oneDayPrice, ethPriceChange } = payload
       return {
+        ...state,
         [ETH_PRICE_KEY]: ethPrice,
         oneDayPrice,
         ethPriceChange,
@@ -292,10 +293,7 @@ async function getGlobalData() {
           data.weeklyVolumeChange = weeklyVolumeChange
         }
 
-        const liquidityChangeUSD = getPercentChange(
-          data.totalLiquidityETH,
-          oneDayData.totalLiquidityETH
-        )
+        const liquidityChangeUSD = getPercentChange(data.totalLiquidityETH, oneDayData.totalLiquidityETH)
         data.liquidityChangeUSD = liquidityChangeUSD
 
         // add relevant fields with the calculated amounts
@@ -304,7 +302,6 @@ async function getGlobalData() {
         data.oneDayTxns = oneDayTxns
         data.txnChange = txnChange
       }
-
     }
   } catch (e) {
     console.log(e)
@@ -335,7 +332,7 @@ const getChartData = async (oldestDateToFetch) => {
       true
     )
 
-    if (data) {
+    if (data.length > 0) {
       let dayIndexSet = new Set()
       let dayIndexArray = []
       const oneDay = 24 * 60 * 60
@@ -529,11 +526,17 @@ export function useGlobalData() {
 
   useEffect(() => {
     async function fetchData() {
-      const globalDataPromise = getGlobalData().then((globalData) => globalData && update(globalData))
-      const allPairsPromise = getAllPairsOnUniswap().then((allPairs) => updateAllPairsInUniswap(allPairs))
-      const allTokensPromise = getAllTokensOnUniswap().then((allTokens) => updateAllTokensInUniswap(allTokens))
+      const globalDataPromise = getGlobalData()
+      const allPairsPromise = getAllPairsOnUniswap()
+      const allTokensPromise = getAllTokensOnUniswap()
 
-      await Promise.all([globalDataPromise, allPairsPromise, allTokensPromise])
+      await Promise.all([globalDataPromise, allPairsPromise, allTokensPromise]).then(
+        ([globalData, allPairs, allTokens]) => {
+          globalData && update(globalData)
+          updateAllPairsInUniswap(allPairs)
+          updateAllTokensInUniswap(allTokens)
+        }
+      )
     }
     if (!data) {
       fetchData()
@@ -660,7 +663,7 @@ export function useTopLps() {
             if (results) {
               return results.liquidityPositions
             }
-          } catch (e) { }
+          } catch (e) {}
         })
       )
 
@@ -671,7 +674,8 @@ export function useTopLps() {
         .map((list) => {
           return list.map((entry) => {
             const pairData = allPairs[entry.pair.id]
-            const usd = (parseFloat(entry.liquidityTokenBalance) / parseFloat(pairData.totalSupply)) *
+            const usd =
+              (parseFloat(entry.liquidityTokenBalance) / parseFloat(pairData.totalSupply)) *
               parseFloat(pairData.reserveUSD)
             if (usd) {
               return topLps.push({
