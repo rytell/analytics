@@ -2,10 +2,11 @@ import { USER_MINTS_BUNRS_PER_PAIR } from '../apollo/queries'
 import { client } from '../apollo/client'
 import dayjs from 'dayjs'
 import { getShareValueOverTime } from '.'
+import { WAVAX_ADDRESS } from '../constants'
 
 export const priceOverrides = [
-  '0xde3a24028580884448a5397872046a019649b084', // USDT
-  '0xba7deebbfc5fa1100fb055a87773e1e99cd3507a', // DAI
+  '0xde3A24028580884448a5397872046a019649b084', // USDT
+  '0xbA7dEebBFC5fA1100Fb055a87773e1E99Cd3507a', // DAI
 ]
 
 interface ReturnMetrics {
@@ -43,10 +44,10 @@ function formatPricesForEarlyTimestamps(position): Position {
       position.token1PriceUSD = 1
     }
     // WAVAX price
-    if (position.pair?.token0.id === '0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7') {
+    if (position.pair?.token0.id === WAVAX_ADDRESS) {
       position.token0PriceUSD = 18
     }
-    if (position.pair?.token1.id === '0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7') {
+    if (position.pair?.token1.id === WAVAX_ADDRESS) {
       position.token1PriceUSD = 18
     }
   }
