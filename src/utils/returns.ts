@@ -4,8 +4,7 @@ import dayjs from 'dayjs'
 import { getShareValueOverTime } from '.'
 
 export const priceOverrides = [
-  '0xde3a24028580884448a5397872046a019649b084', // USDT
-  '0xba7deebbfc5fa1100fb055a87773e1e99cd3507a', // DAI
+  '0x2058ec2791dd28b6f67db836ddf87534f4bbdf22', // Fuji-stablecoin
 ]
 
 interface ReturnMetrics {

@@ -703,9 +703,10 @@ export function useTokenPriceData(tokenAddress, timeWindow, interval = 3600) {
     const windowSize = timeWindow === timeframeOptions.MONTH ? 'month' : 'week'
 
     // July 27th 2021 - Partyswap Factory is created
+    // July 22th 2021 - Partyswap Factory in Fuji is created
     const startTime =
       timeWindow === timeframeOptions.ALL_TIME
-        ? dayjs('2021-07-27').startOf('day').unix()
+        ? dayjs('2021-07-22').startOf('day').unix()
         : currentTime.subtract(1, windowSize).startOf('hour').unix()
 
     async function fetch() {
