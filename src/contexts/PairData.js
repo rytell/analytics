@@ -557,7 +557,7 @@ export function useDataForList(pairList) {
       )
       setFetched(newFetched.concat(newPairData))
     }
-    if (ethPrice && pairList && pairList.length > 0 && !fetched && !stale) {
+    if (typeof ethPrice === 'number' && pairList && pairList.length > 0 && !fetched && !stale) {
       setStale(true)
       fetchNewPairData()
     }
