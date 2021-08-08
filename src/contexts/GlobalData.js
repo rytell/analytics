@@ -348,6 +348,7 @@ const getChartData = async (oldestDateToFetch) => {
       // fill in empty days ( there will be no day datas if no trades made that day )
       let timestamp = data[0].date ? data[0].date : oldestDateToFetch
       let latestLiquidityUSD = data[0].totalLiquidityUSD
+      let latestLiquidityETH = data[0].totalLiquidityETH
       let latestDayDats = data[0].mostLiquidTokens
       let index = 1
       while (timestamp < utcEndTime.unix() - oneDay) {
@@ -358,10 +359,12 @@ const getChartData = async (oldestDateToFetch) => {
             date: nextDay,
             dailyVolumeUSD: 0,
             totalLiquidityUSD: latestLiquidityUSD,
+            totalLiquidityETH: latestLiquidityETH,
             mostLiquidTokens: latestDayDats,
           })
         } else {
           latestLiquidityUSD = dayIndexArray[index].totalLiquidityUSD
+          latestLiquidityETH = dayIndexArray[index].totalLiquidityETH
           latestDayDats = dayIndexArray[index].mostLiquidTokens
           index = index + 1
         }
@@ -677,7 +680,7 @@ export function useTopLps() {
             const usd =
               (parseFloat(entry.liquidityTokenBalance) / parseFloat(pairData.totalSupply)) *
               parseFloat(pairData.reserveUSD)
-            if (usd) {
+            if (typeof usd === 'number') {
               return topLps.push({
                 user: entry.user,
                 pairName: pairData.token0.symbol + '-' + pairData.token1.symbol,

@@ -501,7 +501,7 @@ export function useHourlyRateData(pairAddress, timeWindow) {
     // July 27th 2021 - Partyswap Factory is created
     const startTime =
       timeWindow === timeframeOptions.ALL_TIME
-        ? dayjs('2021-07-26').startOf('day').unix()
+        ? dayjs('2021-07-27').startOf('day').unix()
         : currentTime.subtract(1, windowSize).startOf('hour').unix()
 
     async function fetch() {
