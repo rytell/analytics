@@ -35,7 +35,7 @@ export default function Title() {
           <UniIcon id="link" onClick={() => history.push('/')}>
             <img width={'24px'} src={Logo} alt="logo" />
           </UniIcon>
-          <img width={'150px'} style={{ marginLeft: '8px', marginTop: '0px' }} src={Wordmark} alt="wordmark" />
+          <img height={'32px'} style={{ marginLeft: '8px', marginTop: '0px' }} src={Wordmark} alt="wordmark" />
         </RowFixed>
       </Flex>
     </TitleWrapper>
