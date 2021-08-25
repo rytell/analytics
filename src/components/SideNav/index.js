@@ -165,7 +165,7 @@ function SideNav({ history }) {
           <AutoColumn gap="0.5rem" style={{ marginLeft: '.75rem', marginBottom: '4rem' }}>
             <HeaderText>
               <Link href="https://app.partyswap.io" target="_blank">
-                Partyswap
+                PartySwap
               </Link>
             </HeaderText>
             <HeaderText>
@@ -192,10 +192,10 @@ function SideNav({ history }) {
           )}
         </DesktopWrapper>
       ) : (
-          <MobileWrapper>
-            <Title />
-          </MobileWrapper>
-        )}
+        <MobileWrapper>
+          <Title />
+        </MobileWrapper>
+      )}
     </Wrapper>
   )
 }

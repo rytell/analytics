@@ -498,7 +498,7 @@ export function useHourlyRateData(pairAddress, timeWindow) {
     const currentTime = dayjs.utc()
     const windowSize = timeWindow === timeframeOptions.MONTH ? 'month' : 'week'
 
-    // July 27th 2021 - Partyswap Factory is created
+    // July 27th 2021 - PartySwap Factory is created
     const startTime =
       timeWindow === timeframeOptions.ALL_TIME
         ? dayjs('2021-07-27').startOf('day').unix()
