@@ -5,8 +5,8 @@ import { getShareValueOverTime } from '.'
 import { WAVAX_ADDRESS } from '../constants'
 
 export const priceOverrides = [
-  '0xde3A24028580884448a5397872046a019649b084', // USDT
-  '0xbA7dEebBFC5fA1100Fb055a87773e1E99Cd3507a', // DAI
+  '0xc7198437980c041c805a1edcba50c1ce5db95118', // USDT
+  '0xd586e7f844cea2f87f50152665bcbc2c279d8d70', // DAI
 ]
 
 interface ReturnMetrics {
