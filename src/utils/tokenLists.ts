@@ -32,6 +32,7 @@ const tokenListValidator = new Ajv({ allErrors: true }).compile({
       ...schema.definitions.TokenInfo,
       properties: {
         ...schema.definitions.TokenInfo.properties,
+        // eslint-disable-next-line
         symbol: { ...schema.definitions.TokenInfo.properties.symbol, pattern: "^[a-zA-Z0-9+\\-%/\\$]+(\.e)*$" },
       },
     },
