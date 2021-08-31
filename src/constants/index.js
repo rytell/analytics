@@ -1,3 +1,5 @@
+import dayjs from 'dayjs'
+
 export const FACTORY_ADDRESS = '0x58A08bc28f3E8dab8Fb2773D8f243bC740398b09' // ADDS PARTYSWAP FACTORY
 
 export const WAVAX_ADDRESS = '0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7'
@@ -13,11 +15,11 @@ export const timeframeOptions = {
 }
 
 // token list urls to fetch tokens from - use for warnings on tokens and pairs
-// 
+//
 export const SUPPORTED_LIST_URLS__NO_ENS = [
   'https://raw.githubusercontent.com/PartySwapDEX/token-lists/main/ab.tokenlist.json',
   'https://raw.githubusercontent.com/PartySwapDEX/token-lists/main/aeb.tokenlist.json',
-  'https://raw.githubusercontent.com/PartySwapDEX/token-lists/main/top15.tokenlist.json'
+  'https://raw.githubusercontent.com/PartySwapDEX/token-lists/main/top15.tokenlist.json',
 ]
 
 // hide from overview list
@@ -28,6 +30,8 @@ export const OVERVIEW_TOKEN_BLACKLIST = [
 
 // pair blacklist
 export const PAIR_BLACKLIST = []
+
+export const LAUNCH_DATE = dayjs('2021-08-31').unix() - 1
 
 /**
  * For tokens that cause erros on fee calculations

@@ -22,6 +22,7 @@ import {
 } from '../apollo/queries'
 import weekOfYear from 'dayjs/plugin/weekOfYear'
 import { useAllPairData } from './PairData'
+import { LAUNCH_DATE } from '../constants'
 const UPDATE = 'UPDATE'
 const UPDATE_TXNS = 'UPDATE_TXNS'
 const UPDATE_CHART = 'UPDATE_CHART'
@@ -327,7 +328,7 @@ const getChartData = async (oldestDateToFetch) => {
       client,
       { fetchPolicy: 'cache-first' },
       {},
-      oldestDateToFetch,
+      oldestDateToFetch > LAUNCH_DATE ? oldestDateToFetch : LAUNCH_DATE,
       'date',
       true
     )

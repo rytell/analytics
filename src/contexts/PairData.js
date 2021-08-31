@@ -26,7 +26,7 @@ import {
   getMostRecentBlockSinceTimestamp,
   crawlSingleQuery,
 } from '../utils'
-import { timeframeOptions } from '../constants'
+import { LAUNCH_DATE, timeframeOptions } from '../constants'
 import { useLatestBlocks } from './Application'
 import { updateNameData } from '../utils/data'
 
@@ -343,7 +343,7 @@ const getPairChartData = async (pairAddress) => {
       client,
       { fetchPolicy: 'cache-first' },
       { pairAddress: pairAddress },
-      0,
+      LAUNCH_DATE,
       'date',
       true
     )

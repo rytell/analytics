@@ -27,7 +27,7 @@ import {
   getMostRecentBlockSinceTimestamp,
   crawlSingleQuery,
 } from '../utils'
-import { timeframeOptions } from '../constants'
+import { LAUNCH_DATE, timeframeOptions } from '../constants'
 import { useLatestBlocks } from './Application'
 import { updateNameData } from '../utils/data'
 
@@ -550,7 +550,7 @@ const getTokenChartData = async (tokenAddress) => {
       client,
       { fetchPolicy: 'cache-first' },
       { tokenAddr: tokenAddress },
-      startTime,
+      startTime > LAUNCH_DATE ? startTime : LAUNCH_DATE,
       'date',
       true
     )

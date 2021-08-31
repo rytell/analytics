@@ -8,7 +8,7 @@ import { GET_BLOCK, GET_BLOCKS, GET_BLOCK_BEFORE, GET_BLOCK_AFTER, SHARE_VALUE }
 import { Text } from 'rebass'
 import _Decimal from 'decimal.js-light'
 import toFormat from 'toformat'
-import { timeframeOptions, WAVAX_ADDRESS } from '../constants'
+import { LAUNCH_DATE, timeframeOptions, WAVAX_ADDRESS } from '../constants'
 import Numeral from 'numeral'
 
 // format libraries
@@ -125,7 +125,7 @@ export async function crawlSingleQuery(
   localClient,
   localClientOptions,
   vars,
-  pointer,
+  pointer = LAUNCH_DATE,
   pointerField = 'timestamp',
   crawlingForward = true,
   limit = 1000
