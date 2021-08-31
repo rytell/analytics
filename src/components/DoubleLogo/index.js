@@ -1,3 +1,4 @@
+import { transparentize } from 'polished'
 import React from 'react'
 import styled from 'styled-components'
 import TokenLogo from '../TokenLogo'
@@ -12,14 +13,16 @@ export default function DoubleTokenLogo({ a0, a1, size = 24, margin = false }) {
 
   const HigherLogo = styled(TokenLogo)`
     z-index: 2;
-    background-color: white;
+    background-color: ${({ theme }) => transparentize(0.1, theme.bg1)};
+    backdrop-filter: blur(2.5px);
     border-radius: 50%;
   `
 
   const CoveredLogo = styled(TokenLogo)`
     position: absolute;
     left: ${({ sizeraw }) => (sizeraw / 2).toString() + 'px'};
-    background-color: white;
+    background-color: ${({ theme }) => transparentize(0.1, theme.bg1)};
+    backdrop-filter: blur(2.5px);
     border-radius: 50%;
   `
 
