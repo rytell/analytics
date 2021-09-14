@@ -31,7 +31,7 @@ export const OVERVIEW_TOKEN_BLACKLIST = [
 // pair blacklist
 export const PAIR_BLACKLIST = []
 
-export const LAUNCH_DATE = dayjs('2021-08-31').unix() - 1
+export const LAUNCH_DATE = dayjs('2021-09-14').unix() - 1
 
 /**
  * For tokens that cause erros on fee calculations
