@@ -26,10 +26,15 @@ export const SUPPORTED_LIST_URLS__NO_ENS = [
 export const OVERVIEW_TOKEN_BLACKLIST = [
   '0xa47a05ed74f80fa31621612887d26df40bcf0ca9',
   '0x97b99b4009041e948337ebca7e6ae52f9f6e633c',
+  '0x3ea3e5c6957581f3e70b2c33721d4e6844f60619',
 ]
 
 // pair blacklist
-export const PAIR_BLACKLIST = []
+export const PAIR_BLACKLIST = [
+  '0x93e585458e04c04327451a1b7266157bc2dfec0e',
+  '0x3284797adaec7b9a9632e7c618812eff8a96e10b',
+  '0x0b2263c901ccee687dfebc6fa31dba9632a9c6e9',
+]
 
 export const LAUNCH_DATE = dayjs('2021-09-14').unix() - 1
 
