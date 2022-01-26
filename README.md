@@ -1,12 +1,11 @@
-# PartySwap Analytics
+# Analytics
 
-An analytics platform for PartySwap -- a Decentralized Exchange (DEX) launched in Avalanche where you can do permissionless swaps between currencies, earn interests in farms and liquidity pools in one interoperable, highly scalable ecosystem.
+An analytics platform for Rytell -- a Decentralized Exchange (DEX) launched in Avalanche where you can do permissionless swaps between currencies, earn interests in farms and liquidity pools in one interoperable, highly scalable ecosystem.
 
-- Website: [partyswap.io](https://partyswap.io/)
-- Interface: [app.partyswap.io](https://app.partyswap.io)
-- Telegram: [PartySwap](https://t.me/partyswap)
-- Discord: [PartySwap](https://discord.gg/r9fTvqCfBw)
-- Twitter: [@partyswapdex](https://twitter.com/partyswapdex)
+- Website: [rytell.io](https://rytell.io/)
+- Interface: [rytell-exchange.netlify.app](rytell-exchange.netlify.app)
+- Discord: [Rytell](https://discord.gg/bZ9bBxbjR9)
+- Twitter: [@PlayRytell](https://twitter.com/PlayRytell)
 
 ### To Start Development
 
