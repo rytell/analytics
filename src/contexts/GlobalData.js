@@ -536,7 +536,6 @@ export function useGlobalData() {
 
       await Promise.all([globalDataPromise, allPairsPromise, allTokensPromise]).then(
         ([globalData, allPairs, allTokens]) => {
-          console.log(globalData, allPairs, allTokens)
           globalData && update(globalData)
           updateAllPairsInUniswap(allPairs)
           updateAllTokensInUniswap(allTokens)
