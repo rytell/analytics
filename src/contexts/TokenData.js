@@ -702,7 +702,7 @@ export function useTokenPriceData(tokenAddress, timeWindow, interval = 3600) {
     const currentTime = dayjs.utc()
     const windowSize = timeWindow === timeframeOptions.MONTH ? 'month' : 'week'
 
-    // July 27th 2021 - PartySwap Factory is created
+    // July 27th 2021 - Rytell Factory is created
     const startTime =
       timeWindow === timeframeOptions.ALL_TIME
         ? dayjs('2021-07-27').startOf('day').unix()

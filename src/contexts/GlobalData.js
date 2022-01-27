@@ -238,32 +238,32 @@ async function getGlobalData() {
       query: GLOBAL_DATA(),
       fetchPolicy: 'cache-first',
     })
-    data = result.data.partyswapFactories[0]
+    data = result.data.rytellFactories[0]
 
     // fetch the historical data
     let oneDayResult = await client.query({
       query: GLOBAL_DATA(oneDayBlock?.number),
       fetchPolicy: 'cache-first',
     })
-    oneDayData = oneDayResult.data.partyswapFactories[0]
+    oneDayData = oneDayResult.data.rytellFactories[0]
 
     let twoDayResult = await client.query({
       query: GLOBAL_DATA(twoDayBlock?.number),
       fetchPolicy: 'cache-first',
     })
-    twoDayData = twoDayResult.data.partyswapFactories[0]
+    twoDayData = twoDayResult.data.rytellFactories[0]
 
     let oneWeekResult = await client.query({
       query: GLOBAL_DATA(oneWeekBlock?.number),
       fetchPolicy: 'cache-first',
     })
-    const oneWeekData = oneWeekResult.data.partyswapFactories[0]
+    const oneWeekData = oneWeekResult.data.rytellFactories[0]
 
     let twoWeekResult = await client.query({
       query: GLOBAL_DATA(twoWeekBlock?.number),
       fetchPolicy: 'cache-first',
     })
-    const twoWeekData = twoWeekResult.data.partyswapFactories[0]
+    const twoWeekData = twoWeekResult.data.rytellFactories[0]
 
     if (data) {
       //if (data && oneDayData && twoDayData && twoWeekData) {
@@ -324,7 +324,7 @@ const getChartData = async (oldestDateToFetch) => {
   try {
     data = await crawlSingleQuery(
       GLOBAL_CHART,
-      'partyswapDayDatas',
+      'rytellDayDatas',
       client,
       { fetchPolicy: 'cache-first' },
       {},
@@ -536,6 +536,7 @@ export function useGlobalData() {
 
       await Promise.all([globalDataPromise, allPairsPromise, allTokensPromise]).then(
         ([globalData, allPairs, allTokens]) => {
+          console.log(globalData, allPairs, allTokens)
           globalData && update(globalData)
           updateAllPairsInUniswap(allPairs)
           updateAllTokensInUniswap(allTokens)

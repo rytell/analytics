@@ -115,8 +115,8 @@ function App() {
           </WarningWrapper>
         )}
         {latestBlock &&
-        globalData &&
-        Object.keys(globalData).length > 0 &&
+        // globalData &&
+        // Object.keys(globalData).length > 0 &&
         globalChartData &&
         Object.keys(globalChartData).length > 0 ? (
           <HashRouter>

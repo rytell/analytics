@@ -1,6 +1,6 @@
 import dayjs from 'dayjs'
 
-export const FACTORY_ADDRESS = '0x58a08bc28f3e8dab8fb2773d8f243bc740398b09' // ADDS PARTYSWAP FACTORY
+export const FACTORY_ADDRESS = '0xe5e970FE3a90F314977a9Fd41e349486a9e8c4fe' // ADDS PARTYSWAP FACTORY
 
 export const WAVAX_ADDRESS = '0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7'
 
@@ -36,7 +36,7 @@ export const PAIR_BLACKLIST = [
   '0x0b2263c901ccee687dfebc6fa31dba9632a9c6e9',
 ]
 
-export const LAUNCH_DATE = dayjs('2021-09-14').unix() - 1
+export const LAUNCH_DATE = dayjs('2022-01-30').unix() - 1
 
 /**
  * For tokens that cause erros on fee calculations

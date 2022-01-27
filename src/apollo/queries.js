@@ -3,7 +3,7 @@ import { FACTORY_ADDRESS, BUNDLE_ID } from '../constants'
 
 export const SUBGRAPH_HEALTH = gql`
   query health {
-    indexingStatusForCurrentVersion(subgraphName: "josema03/partyswap-dex") {
+    indexingStatusForCurrentVersion(subgraphName: "pedroomedicina/rytellfuji") {
       synced
       health
       chains {
@@ -455,8 +455,8 @@ export const PAIR_DAY_DATA_BULK = (pairs, startTimestamp) => {
 }
 
 export const GLOBAL_CHART = gql`
-  query partyswapDayDatas($pointer: Int!) {
-    partyswapDayDatas(first: 1000, where: { date_gt: $pointer }, orderBy: date, orderDirection: asc) {
+  query rytellDayDatas($pointer: Int!) {
+    rytellDayDatas(first: 1000, where: { date_gt: $pointer }, orderBy: date, orderDirection: asc) {
       id
       date
       totalVolumeUSD
@@ -469,8 +469,8 @@ export const GLOBAL_CHART = gql`
 `
 
 export const GLOBAL_DATA = (block) => {
-  const queryString = ` query partyswapFactories {
-      partyswapFactories(
+  const queryString = ` query rytellFactories {
+      rytellFactories(
        ${block ? `block: { number: ${block}}` : ``} 
        where: { id: "${FACTORY_ADDRESS}" }) {
         id

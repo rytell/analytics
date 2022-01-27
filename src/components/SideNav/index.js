@@ -164,22 +164,17 @@ function SideNav({ history }) {
           </AutoColumn>
           <AutoColumn gap="0.5rem" style={{ marginLeft: '.75rem', marginBottom: '4rem' }}>
             <HeaderText>
-              <Link href="https://partyswap.io" target="_blank">
-                PartySwap
+              <Link href="https://rytell.io" target="_blank">
+                Rytell
               </Link>
             </HeaderText>
             <HeaderText>
-              <Link href="https://discord.gg/r9fTvqCfBw" target="_blank">
+              <Link href="https://discord.gg/bZ9bBxbjR9" target="_blank">
                 Discord
               </Link>
             </HeaderText>
             <HeaderText>
-              <Link href="https://t.me/partyswap" target="_blank">
-                Telegram
-              </Link>
-            </HeaderText>
-            <HeaderText>
-              <Link href="https://twitter.com/partyswapdex" target="_blank">
+              <Link href="https://twitter.com/playrytell" target="_blank">
                 Twitter
               </Link>
             </HeaderText>
