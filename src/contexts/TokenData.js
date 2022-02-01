@@ -64,9 +64,13 @@ function reducer(state, { type, payload }) {
       const { topTokens } = payload
       let added = {}
       topTokens &&
-        topTokens.map((token) => {
-          return (added[token.id] = token)
-        })
+        topTokens
+          .filter((token) => {
+            return token.id.toLowerCase() !== '0x81d8b7e80b5823ebb93d5019dde5096e03292f12'
+          })
+          .map((token) => {
+            return (added[token.id] = token)
+          })
       return {
         ...state,
         ...added,
