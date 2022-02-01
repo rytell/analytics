@@ -69,9 +69,11 @@ function reducer(state, { type, payload }) {
     case UPDATE_TOP_PAIRS: {
       const { topPairs } = payload
       let added = {}
-      topPairs.map((pair) => {
-        return (added[pair.id] = pair)
-      })
+      topPairs
+        .filter((pair) => pair.id.toLowerCase() !== '0x6c7c8929712da7a62bd437898b648cbb89494104')
+        .map((pair) => {
+          return (added[pair.id] = pair)
+        })
       return {
         ...state,
         ...added,
