@@ -17,9 +17,10 @@ export const timeframeOptions = {
 // token list urls to fetch tokens from - use for warnings on tokens and pairs
 //
 export const SUPPORTED_LIST_URLS__NO_ENS = [
-  'https://raw.githubusercontent.com/PartySwapDEX/token-lists/main/ab.tokenlist.json',
-  'https://raw.githubusercontent.com/PartySwapDEX/token-lists/main/aeb.tokenlist.json',
-  'https://raw.githubusercontent.com/PartySwapDEX/token-lists/main/top15.tokenlist.json',
+  'https://raw.githubusercontent.com/pangolindex/tokenlists/main/ab.tokenlist.json',
+  'https://raw.githubusercontent.com/pangolindex/tokenlists/main/aeb.tokenlist.json',
+  'https://raw.githubusercontent.com/pangolindex/tokenlists/main/top15.tokenlist.json',
+  'https://raw.githubusercontent.com/rytell/tokenlists/main/rytell.tokenlist.json',
 ]
 
 // hide from overview list
@@ -27,6 +28,7 @@ export const OVERVIEW_TOKEN_BLACKLIST = [
   '0xa47a05ed74f80fa31621612887d26df40bcf0ca9',
   '0x97b99b4009041e948337ebca7e6ae52f9f6e633c',
   '0x3ea3e5c6957581f3e70b2c33721d4e6844f60619',
+  '0x81d8B7e80b5823Ebb93D5019dde5096E03292F12',
 ]
 
 // pair blacklist

@@ -71,9 +71,30 @@ export default function TokenLogo({ address, header = false, size = '24px', ...r
     )
   }
 
-  const path = `https://raw.githubusercontent.com/PartySwapDEX/token-assets/main/assets/${isAddress(
-    address
-  )}/logo.png`
+  const isRytellToken = (address) => {
+    const tokens = [
+      {
+        43113: {
+          address: '0x600615234c0a427834A4344D10fEaCA374B2dfCB',
+        },
+        43114: {
+          address: '0x9c5bBb5169B66773167d86818b3e149A4c7e1d1A',
+        },
+      },
+    ]
+
+    const lowercasedAddress = address?.toLowerCase()
+
+    return tokens.some(
+      (token) =>
+        token[43113].address.toLowerCase() === lowercasedAddress ||
+        token[43114].address.toLowerCase() === lowercasedAddress
+    )
+  }
+
+  const path = isRytellToken(address)
+    ? `https://raw.githubusercontent.com/rytell/assets/main/${isAddress(address)}/logo.png`
+    : `https://raw.githubusercontent.com/pangolindex/tokens/main/assets/${isAddress(address)}/logo.png`
 
   return (
     <Inline>
