@@ -107,7 +107,7 @@ const SORT_FIELD = {
 }
 
 function PositionList({ positions }) {
-  const below500 = useMedia('(max-width: 500px)')
+  // const below500 = useMedia('(max-width: 500px)')
   const below740 = useMedia('(max-width: 740px)')
 
   // pagination
@@ -200,39 +200,6 @@ function PositionList({ positions }) {
             </AutoColumn>
           </AutoColumn>
         </DataText>
-        {!below500 && (
-          <DataText area="return">
-            <AutoColumn gap="12px" justify="flex-end">
-              <TYPE.main color={'green'}>
-                <RowFixed>{formattedNum(position?.fees.sum, true, true)}</RowFixed>
-              </TYPE.main>
-              <AutoColumn gap="4px" justify="flex-end">
-                <RowFixed>
-                  <TYPE.small fontWeight={400}>
-                    {formattedNum(position?.fees.token0, false, true)}{' '}
-                  </TYPE.small>
-                  <FormattedName
-                    text={position.pair.token0.symbol}
-                    maxCharacters={below740 ? 10 : 18}
-                    margin={true}
-                    fontSize={'11px'}
-                  />
-                </RowFixed>
-                <RowFixed>
-                  <TYPE.small fontWeight={400}>
-                    {formattedNum(position?.fees.token1, false, true)}{' '}
-                  </TYPE.small>
-                  <FormattedName
-                    text={position.pair.token1.symbol}
-                    maxCharacters={below740 ? 10 : 18}
-                    margin={true}
-                    fontSize={'11px'}
-                  />
-                </RowFixed>
-              </AutoColumn>
-            </AutoColumn>
-          </DataText>
-        )}
       </DashGrid>
     )
   }
@@ -279,7 +246,7 @@ function PositionList({ positions }) {
         <Flex alignItems="flex-start" justifyContent="flex-start">
           <TYPE.main area="number">Name</TYPE.main>
         </Flex>
-        <Flex alignItems="center" justifyContent="flexEnd">
+        <Flex alignItems="center" justifyContent="flex-end">
           <ClickableText
             area="uniswap"
             onClick={(e) => {
@@ -290,20 +257,6 @@ function PositionList({ positions }) {
             {below740 ? 'Value' : 'Liquidity'} {sortedColumn === SORT_FIELD.VALUE ? (!sortDirection ? '↑' : '↓') : ''}
           </ClickableText>
         </Flex>
-        {!below500 && (
-          <Flex alignItems="center" justifyContent="flexEnd">
-            <ClickableText
-              area="return"
-              onClick={() => {
-                setSortedColumn(SORT_FIELD.UNISWAP_RETURN)
-                setSortDirection(sortedColumn !== SORT_FIELD.UNISWAP_RETURN ? true : !sortDirection)
-              }}
-            >
-              {below740 ? 'Fees' : 'Total Fees Earned'}{' '}
-              {sortedColumn === SORT_FIELD.UNISWAP_RETURN ? (!sortDirection ? '↑' : '↓') : ''}
-            </ClickableText>
-          </Flex>
-        )}
       </DashGrid>
       <Divider />
       <List p={0}>{!positionsSorted ? <LocalLoader /> : positionsSorted}</List>
