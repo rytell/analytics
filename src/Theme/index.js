@@ -3,6 +3,7 @@ import { ThemeProvider as StyledComponentsThemeProvider, createGlobalStyle } fro
 import { useDarkModeManager } from '../contexts/LocalStorage'
 import styled from 'styled-components'
 import { Text } from 'rebass'
+import { principalColor } from '../constants';
 
 export default function ThemeProvider({ children }) {
   const [darkMode] = useDarkModeManager()
@@ -17,7 +18,7 @@ const theme = (darkMode, color) => ({
   panelColor: darkMode ? 'rgba(255, 255, 255, 0)' : 'rgba(255, 255, 255, 0)',
   backgroundColor: darkMode ? '#212429' : '#F7F8FA',
 
-  rytellPurple: darkMode ? '#3B0084' : 'black',
+  rytellPurple: darkMode ? principalColor : 'black',
 
   concreteGray: darkMode ? '#292C2F' : '#FAFAFA',
   inputBackground: darkMode ? '#1F1F1F' : '#FAFAFA',
@@ -48,14 +49,14 @@ const theme = (darkMode, color) => ({
   divider: darkMode ? 'rgba(43, 43, 43, 0.435)' : 'rgba(43, 43, 43, 0.035)',
 
   //primary colors
-  primary1: darkMode ? '#2172E5' : '#3B0084',
-  primary2: darkMode ? '#3680E7' : '#3B0084',
-  primary3: darkMode ? '#4D8FEA' : '#3B0084',
-  primary4: darkMode ? '#376bad70' : '#3B0084',
-  primary5: darkMode ? '#153d6f70' : '#3B0084',
+  primary1: darkMode ? '#2172E5' : principalColor,
+  primary2: darkMode ? '#3680E7' : principalColor,
+  primary3: darkMode ? '#4D8FEA' : principalColor,
+  primary4: darkMode ? '#376bad70' : principalColor,
+  primary5: darkMode ? '#153d6f70' : principalColor,
 
   // color text
-  primaryText1: darkMode ? '#6da8ff' : '#3B0084',
+  primaryText1: darkMode ? '#6da8ff' : principalColor,
 
   // secondary colors
   secondary1: darkMode ? '#2172E5' : '#ff007a',
@@ -72,7 +73,7 @@ const theme = (darkMode, color) => ({
   link: '#2172E5',
   blue: '2f80ed',
 
-  background: darkMode ? 'black' : `radial-gradient(50% 50% at 50% 50%, #3B0084 0%, #fff 0%)`,
+  background: darkMode ? 'black' : `radial-gradient(50% 50% at 50% 50%, #751A2B 0%, #fff 0%)`,
 })
 
 const TextWrapper = styled(Text)`

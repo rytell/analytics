@@ -44,3 +44,5 @@ export const LAUNCH_DATE = dayjs('2022-01-26').unix() - 1
  * For tokens that cause erros on fee calculations
  */
 export const FEE_WARNING_TOKENS = ['0xd46ba6d942050d489dbd938a2c909a5d5039a161']
+
+export const principalColor = '#751A2B'

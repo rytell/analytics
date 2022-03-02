@@ -15,7 +15,7 @@ import { AutoRow, RowBetween } from '../components/Row'
 import Search from '../components/Search'
 import TopTokenList from '../components/TokenList'
 import TxnList from '../components/TxnList'
-import { OVERVIEW_TOKEN_BLACKLIST, PAIR_BLACKLIST } from '../constants'
+import { OVERVIEW_TOKEN_BLACKLIST, PAIR_BLACKLIST, principalColor } from '../constants'
 import { useGlobalData, useGlobalTransactions } from '../contexts/GlobalData'
 import { useAllPairData } from '../contexts/PairData'
 import { useAllTokenData } from '../contexts/TokenData'
@@ -71,7 +71,7 @@ function GlobalPage() {
 
   return (
     <PageWrapper>
-      <ThemedBackground backgroundColor={transparentize(0.7, '#751A2B')} />
+      <ThemedBackground backgroundColor={transparentize(0.7, principalColor)} />
       <ContentWrapper>
         <div>
           <AutoColumn gap="24px" style={{ paddingBottom: below800 ? '0' : '24px' }}>
