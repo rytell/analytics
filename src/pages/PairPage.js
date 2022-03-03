@@ -15,7 +15,6 @@ import Loader from '../components/LocalLoader'
 import { BasicLink } from '../components/Link'
 import Search from '../components/Search'
 import { formattedNum, formattedPercent, getPoolLink, getSwapLink } from '../utils'
-import { useColor } from '../hooks'
 import { usePairData, usePairTransactions } from '../contexts/PairData'
 import { TYPE, ThemedBackground } from '../Theme'
 import { transparentize } from 'polished'
@@ -31,6 +30,8 @@ import { usePathDismissed, useSavedPairs } from '../contexts/LocalStorage'
 import { Bookmark, PlusCircle } from 'react-feather'
 import FormattedName from '../components/FormattedName'
 import { useListedTokens } from '../contexts/Application'
+import { principalColor } from '../constants';
+import { useDarkModeManager } from '../contexts/LocalStorage'
 
 const DashboardWrapper = styled.div`
   width: 100%;
@@ -107,6 +108,7 @@ const WarningGrouping = styled.div`
   pointer-events: ${({ disabled }) => disabled && 'none'};
 `
 
+
 function PairPage({ pairAddress, history }) {
   const {
     token0,
@@ -127,7 +129,6 @@ function PairPage({ pairAddress, history }) {
   }, [])
 
   const transactions = usePairTransactions(pairAddress)
-  const backgroundColor = useColor(pairAddress)
 
   // liquidity
   const liquidity = trackedReserveUSD
@@ -200,9 +201,12 @@ function PairPage({ pairAddress, history }) {
 
   const listedTokens = useListedTokens()
 
+  const [darkMode] = useDarkModeManager()
+  const textColor = darkMode ? 'white' : 'black'
+
   return (
     <PageWrapper>
-      <ThemedBackground backgroundColor={transparentize(0.6, backgroundColor)} />
+      <ThemedBackground backgroundColor={transparentize(0.6, principalColor)} />
       <span />
       <Warning
         type={'pair'}
@@ -219,7 +223,7 @@ function PairPage({ pairAddress, history }) {
             </TYPE.body>
             <Link
               style={{ width: 'fit-content' }}
-              color={backgroundColor}
+              color={principalColor}
               external
               href={'https://cchain.explorer.avax.network/address/' + pairAddress}
             >
@@ -262,8 +266,8 @@ function PairPage({ pairAddress, history }) {
                           Pair
                         </>
                       ) : (
-                          ''
-                        )}
+                        ''
+                      )}
                     </TYPE.main>
                   </RowFixed>
                 </RowFixed>
@@ -285,14 +289,14 @@ function PairPage({ pairAddress, history }) {
                       <Bookmark style={{ marginRight: '0.5rem', opacity: 0.4 }} />
                     </StyledIcon>
                   ) : (
-                        <></>
-                      )}
+                    <></>
+                  )}
 
                   <Link external href={getPoolLink(token0?.id, token1?.id)}>
-                    <ButtonLight color={backgroundColor}>+ Add Liquidity</ButtonLight>
+                    <ButtonLight color={textColor}>+ Add Liquidity</ButtonLight>
                   </Link>
                   <Link external href={getSwapLink(token0?.id, token1?.id)}>
-                    <ButtonDark ml={!below1080 && '.5rem'} mr={below1080 && '.5rem'} color={backgroundColor}>
+                    <ButtonDark ml={!below1080 && '.5rem'} mr={below1080 && '.5rem'} color={principalColor}>
                       Trade
                     </ButtonDark>
                   </Link>
@@ -415,7 +419,7 @@ function PairPage({ pairAddress, history }) {
                 >
                   <PairChart
                     address={pairAddress}
-                    color={backgroundColor}
+                    color={principalColor}
                     base0={reserve1 / reserve0}
                     base1={reserve0 / reserve1}
                   />
@@ -489,8 +493,8 @@ function PairPage({ pairAddress, history }) {
                       <CopyHelper toCopy={token1?.id} />
                     </AutoRow>
                   </Column>
-                  <ButtonLight color={backgroundColor}>
-                    <Link color={backgroundColor} external href={'https://cchain.explorer.avax.network/address/' + pairAddress}>
+                  <ButtonLight color={textColor}>
+                    <Link color={principalColor} external href={'https://cchain.explorer.avax.network/address/' + pairAddress}>
                       View on the C-Chain Explorer ↗
                     </Link>
                   </ButtonLight>

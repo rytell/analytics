@@ -6,12 +6,11 @@ import { AutoRow, RowBetween } from '../Row'
 import { toK, toNiceDate, toNiceDateYear, formattedNum, getTimeframe } from '../../utils'
 import { OptionButton } from '../ButtonStyled'
 import { useMedia } from 'react-use'
-import { timeframeOptions } from '../../constants'
+import { timeframeOptions, principalColor } from '../../constants'
 import DropdownSelect from '../DropdownSelect'
 import { useUserPositionChart } from '../../contexts/User'
 import { useTimeframe } from '../../contexts/Application'
 import LocalLoader from '../LocalLoader'
-import { useColor } from '../../hooks'
 import { useDarkModeManager } from '../../contexts/LocalStorage'
 
 const ChartWrapper = styled.div`
@@ -41,7 +40,7 @@ const PairReturnsChart = ({ account, position }) => {
 
   const below600 = useMedia('(max-width: 600px)')
 
-  const color = useColor(position?.pair.token0.id)
+  const color = principalColor
 
   const [chartView, setChartView] = useState(CHART_VIEW.VALUE)
 
