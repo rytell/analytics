@@ -124,10 +124,6 @@ function AccountPage({ account }) {
 
   const dynamicPositions = activePosition ? [activePosition] : positions
 
-  const aggregateFees = dynamicPositions?.reduce(function (total, position) {
-    return total + position.fees.sum
-  }, 0)
-
   const positionValue = useMemo(() => {
     return dynamicPositions
       ? dynamicPositions.reduce((total, position) => {
@@ -263,17 +259,6 @@ function AccountPage({ account }) {
                     </TYPE.header>
                   </RowFixed>
                 </AutoColumn>
-                <AutoColumn gap="10px">
-                  <RowBetween>
-                    <TYPE.body>Fees Earned (Cumulative)</TYPE.body>
-                    <div />
-                  </RowBetween>
-                  <RowFixed align="flex-end">
-                    <TYPE.header fontSize={'24px'} lineHeight={1} color={aggregateFees && 'green'}>
-                      {aggregateFees ? formattedNum(aggregateFees, true, true) : '-'}
-                    </TYPE.header>
-                  </RowFixed>
-                </AutoColumn>
               </AutoRow>
             </Panel>
           )}
@@ -283,8 +268,8 @@ function AccountPage({ account }) {
                 {activePosition ? (
                   <PairReturnsChart account={account} position={activePosition} />
                 ) : (
-                    <UserChart account={account} />
-                  )}
+                  <UserChart account={account} />
+                )}
               </Panel>
             </PanelWrapper>
           )}
