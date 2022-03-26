@@ -43,7 +43,7 @@ const List = styled(Box)`
 const DashGrid = styled.div`
   display: grid;
   grid-gap: 1em;
-  grid-template-columns: 5px 0.5fr 1fr 1fr;
+  grid-template-columns: 5px 0.5fr 1fr;
   grid-template-areas: 'number name uniswap return';
   align-items: flex-start;
   padding: 20px 0;
@@ -60,7 +60,7 @@ const DashGrid = styled.div`
   }
 
   @media screen and (min-width: 1200px) {
-    grid-template-columns: 35px 2.5fr 1fr 1fr;
+    grid-template-columns: 35px 2.5fr 1fr;
     grid-template-areas: 'number name uniswap return';
   }
 
@@ -246,7 +246,7 @@ function PositionList({ positions }) {
         <Flex alignItems="flex-start" justifyContent="flex-start">
           <TYPE.main area="number">Name</TYPE.main>
         </Flex>
-        <Flex alignItems="center" justifyContent="flex-end">
+        <Flex alignItems="flex-end" justifyContent="flex-end">
           <ClickableText
             area="uniswap"
             onClick={(e) => {
